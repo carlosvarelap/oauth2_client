@@ -24,6 +24,14 @@ Retrieve a client with access_token using Client Credentials Grant
 {ok, Headers, Client}
 ```
 
+Retrieve a client with access_token using Client Credentials Grant through a proxy
+
+```erlang
+2> oauth2c:retrieve_access_token(<<"client_credentials">>, <<"Url">>, <<"Client">>, <<"Secret">>,
+                                 [{proxy, {<<"Host">>, 8118}}]).
+{ok, Headers, Client}
+```
+
 The Opaque `Client` object is to be used on subsequent requests like:
 
 ```erlang
