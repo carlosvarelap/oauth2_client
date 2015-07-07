@@ -188,6 +188,7 @@ do_retrieve_access_token(#client{grant_type = <<"password">>} = Client) ->
                             ,id           = Client#client.id
                             ,secret       = Client#client.secret
                             ,scope        = Client#client.scope
+                            ,request_options = Client#client.request_options
                             };
                 _ ->
                     #client{
@@ -196,6 +197,7 @@ do_retrieve_access_token(#client{grant_type = <<"password">>} = Client) ->
                             ,access_token  = AccessToken
                             ,refresh_token = RefreshToken
                             ,scope         = Client#client.scope
+                            ,request_options = Client#client.request_options
                             }
             end,
             {ok, Headers, Result};
@@ -228,6 +230,7 @@ do_retrieve_access_token(#client{grant_type = <<"client_credentials">>,
                              ,id           = Client#client.id
                              ,secret       = Client#client.secret
                              ,scope        = Client#client.scope
+                             ,request_options = Client#client.request_options
                             },
             {ok, Headers, Result};
         {error, _, _, Reason} ->
